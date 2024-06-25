@@ -14,14 +14,17 @@
 
     // Method to construct Bing Maps embed URL based on options
     SuperDiamondMap.prototype.constructMapUrl = function() {
-        var mapUrl = "https://www.bing.com/maps/embed/viewer.aspx?v=3&";
-        mapUrl += "cp=" + (this.options.latitude || '0') + "~" + (this.options.longitude || '0');
-        mapUrl += "&lvl=" + (this.options.zoomlvl || '15');
-        mapUrl += "&sty=" + (this.options.view || 'auto');
-        mapUrl += "&w=" + (this.options.width || '600') + "&h=" + (this.options.height || '450');
-        mapUrl += "&c=" + (this.options.language || 'en');
-        return mapUrl;
+       var mapUrl = "https://alexidians.com/Super-Diamond-Maps/embed.php?";
+       mapUrl += "latitude=" + encodeURIComponent(this.options.latitude || '0');
+       mapUrl += "&longitude=" + encodeURIComponent(this.options.longitude || '0');
+       mapUrl += "&zoomlvl=" + encodeURIComponent(this.options.zoomlvl || '15');
+       mapUrl += "&view=" + encodeURIComponent(this.options.view || 'auto');
+       mapUrl += "&width=" + encodeURIComponent(this.options.width || '600');
+       mapUrl += "&height=" + encodeURIComponent(this.options.height || '450');
+       mapUrl += "&language=" + encodeURIComponent(this.options.language || 'en');
+       return mapUrl;
     };
+
 
     // Method to create iframe element and append to container
     SuperDiamondMap.prototype.createMapIframe = function(mapUrl) {
